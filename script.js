@@ -19,18 +19,18 @@ const QUESTIONS = [
       "Mengalokasikan anggaran pendidikan ke daerah",
     ],
     correct: 1,
-    explain: "Pasal 2 menyebutkan Penjaminan Mutu Pendidikan bertujuan memastikan penyelenggaraan pendidikan memenuhi dan/atau melampaui standar yang ditetapkan secara berkelanjutan.",
+    explain: "Pasal 2 Permendikdasmen Nomor 21 Tahun 2026 menyebutkan Penjaminan Mutu Pendidikan bertujuan memastikan penyelenggaraan pendidikan memenuhi dan/atau melampaui standar yang ditetapkan secara berkelanjutan.",
   },
   {
     topic: "spmi",
-    q: "Berikut ini adalah prinsip Penjaminan Mutu Pendidikan berdasarkan Pasal 3 Permendikdasmen No. 21/2026, KECUALI:",
+    q: "Berikut ini adalah prinsip Penjaminan Mutu Pendidikan berdasarkan Pasal 3 Permendikdasmen Nomor 21 Tahun 2026, KECUALI:",
     options: ["Objektif", "Transparan", "Kompetitif", "Partisipatif"],
     correct: 2,
-    explain: "Enam prinsip Penjaminan Mutu Pendidikan adalah objektif, transparan, akuntabel, komprehensif, partisipatif, dan berkelanjutan. \"Kompetitif\" bukan salah satunya.",
+    explain: "Pasal 3 Permendikdasmen Nomor 21 Tahun 2026 menetapkan enam prinsip Penjaminan Mutu Pendidikan: objektif, transparan, akuntabel, komprehensif, partisipatif, dan berkelanjutan. \"Kompetitif\" bukan salah satunya.",
   },
   {
     topic: "spmi",
-    q: "Berdasarkan Pasal 6, di mana SPMI wajib dilaksanakan?",
+    q: "Berdasarkan Pasal 6 Permendikdasmen Nomor 21 Tahun 2026, di mana SPMI wajib dilaksanakan?",
     options: [
       "Hanya di satuan pendidikan negeri",
       "Di setiap satuan pendidikan",
@@ -38,11 +38,11 @@ const QUESTIONS = [
       "Hanya di tingkat kabupaten/kota",
     ],
     correct: 1,
-    explain: "Pasal 6 menegaskan SPMI wajib dilaksanakan di setiap satuan pendidikan, baik formal maupun nonformal.",
+    explain: "Pasal 6 Permendikdasmen Nomor 21 Tahun 2026 menegaskan SPMI wajib dilaksanakan di setiap satuan pendidikan, baik formal maupun nonformal.",
   },
   {
     topic: "spmi",
-    q: "Siklus SPMI (dikenal sebagai siklus 6M) dilaksanakan secara berurutan. Manakah urutan tahap yang benar?",
+    q: "Menurut Pasal 8 Permendikdasmen Nomor 21 Tahun 2026, siklus SPMI (dikenal sebagai siklus 6M) dilaksanakan secara berurutan. Manakah urutan tahap yang benar?",
     options: [
       "Menetapkan → Memetakan → Merencanakan → Melaksanakan → Mengevaluasi → Mengendalikan",
       "Memetakan → Menetapkan → Melaksanakan → Merencanakan → Mengendalikan → Mengevaluasi",
@@ -50,18 +50,18 @@ const QUESTIONS = [
       "Menetapkan → Melaksanakan → Memetakan → Merencanakan → Mengendalikan → Mengevaluasi",
     ],
     correct: 0,
-    explain: "Pasal 8 mengatur mekanisme SPMI dalam bentuk siklus: Menetapkan → Memetakan → Merencanakan → Melaksanakan → Mengevaluasi → Mengendalikan.",
+    explain: "Pasal 8 Permendikdasmen Nomor 21 Tahun 2026 mengatur mekanisme SPMI dalam bentuk siklus: Menetapkan → Memetakan → Merencanakan → Melaksanakan → Mengevaluasi → Mengendalikan.",
   },
   {
     topic: "spmi",
-    q: "Berdasarkan Pasal 8, siklus SPMI sekurang-kurangnya dilaksanakan berapa kali dalam satu tahun?",
+    q: "Berdasarkan Pasal 8 Permendikdasmen Nomor 21 Tahun 2026, siklus SPMI sekurang-kurangnya dilaksanakan berapa kali dalam satu tahun?",
     options: ["1 kali", "2 kali", "3 kali", "4 kali"],
     correct: 0,
-    explain: "Siklus SPMI sekurang-kurangnya dilaksanakan 1 kali dalam 1 tahun (Pasal 8).",
+    explain: "Pasal 8 Permendikdasmen Nomor 21 Tahun 2026 menyatakan siklus SPMI sekurang-kurangnya dilaksanakan 1 kali dalam 1 tahun.",
   },
   {
     topic: "spmi",
-    q: "SPME (Sistem Penjaminan Mutu Eksternal) dilaksanakan oleh siapa?",
+    q: "Menurut Pasal 9 dan Pasal 12 Permendikdasmen Nomor 21 Tahun 2026, SPME (Sistem Penjaminan Mutu Eksternal) dilaksanakan oleh siapa?",
     options: [
       "Tim penjaminan mutu internal satuan pendidikan",
       "Lembaga nonstruktural yang bersifat mandiri dan profesional yang bertugas melaksanakan akreditasi",
@@ -69,11 +69,11 @@ const QUESTIONS = [
       "Kepala satuan pendidikan bersama komite sekolah",
     ],
     correct: 1,
-    explain: "Pasal 9 dan 12 menyatakan SPME dilakukan oleh lembaga nonstruktural yang mandiri dan profesional, dalam praktiknya oleh BSANP melalui KAN PF dan KAN PNF.",
+    explain: "Pasal 9 dan Pasal 12 Permendikdasmen Nomor 21 Tahun 2026 menyatakan SPME dilakukan oleh lembaga nonstruktural yang mandiri dan profesional, dalam praktiknya oleh BSANP melalui KAN PF dan KAN PNF.",
   },
   {
     topic: "spmi",
-    q: "Menurut Pasal 11, tim penjaminan mutu pada satuan pendidikan paling sedikit terdiri atas...",
+    q: "Menurut Pasal 11 Permendikdasmen Nomor 21 Tahun 2026, tim penjaminan mutu pada satuan pendidikan paling sedikit terdiri atas...",
     options: [
       "Kepala Dinas Pendidikan, pengawas, dan guru",
       "Pimpinan satuan pendidikan, pendidik, dan komite sekolah/pemangku kepentingan",
@@ -81,25 +81,25 @@ const QUESTIONS = [
       "Tim BSANP dan asesor eksternal",
     ],
     correct: 1,
-    explain: "Pasal 11 mengatur SPMI diselenggarakan oleh tim penjaminan mutu yang paling sedikit terdiri atas pimpinan satuan pendidikan, pendidik, dan komite sekolah atau pemangku kepentingan.",
+    explain: "Pasal 11 Permendikdasmen Nomor 21 Tahun 2026 mengatur SPMI diselenggarakan oleh tim penjaminan mutu yang paling sedikit terdiri atas pimpinan satuan pendidikan, pendidik, dan komite sekolah atau pemangku kepentingan.",
   },
   {
     topic: "snp",
     q: "Menurut Pasal 3 PP Nomor 57 Tahun 2021, Standar Nasional Pendidikan (SNP) mencakup berapa standar?",
     options: ["6 standar", "7 standar", "8 standar", "9 standar"],
     correct: 2,
-    explain: "SNP mencakup 8 standar: kompetensi lulusan, isi, proses, penilaian pendidikan, tenaga kependidikan, sarana dan prasarana, pengelolaan, dan pembiayaan (Pasal 3).",
+    explain: "Pasal 3 PP Nomor 57 Tahun 2021 menetapkan SNP mencakup 8 standar: kompetensi lulusan, isi, proses, penilaian pendidikan, tenaga kependidikan, sarana dan prasarana, pengelolaan, dan pembiayaan.",
   },
   {
     topic: "snp",
-    q: "Manakah berikut ini yang BUKAN termasuk dalam 8 Standar Nasional Pendidikan?",
+    q: "Menurut Pasal 3 PP Nomor 57 Tahun 2021, manakah berikut ini yang BUKAN termasuk dalam 8 Standar Nasional Pendidikan?",
     options: ["Standar Isi", "Standar Pengelolaan", "Standar Akreditasi", "Standar Pembiayaan"],
     correct: 2,
-    explain: "\"Standar Akreditasi\" tidak termasuk dalam 8 SNP. Akreditasi merupakan bagian dari SPME, bukan salah satu dari 8 standar dalam Pasal 3 PP 57/2021.",
+    explain: "\"Standar Akreditasi\" tidak termasuk dalam 8 SNP menurut Pasal 3 PP Nomor 57 Tahun 2021. Akreditasi merupakan bagian dari SPME, bukan salah satu dari 8 standar tersebut.",
   },
   {
     topic: "snp",
-    q: "Sesuai Pasal 6 ayat (1), standar kompetensi lulusan pada jenjang pendidikan dasar difokuskan pada apa?",
+    q: "Sesuai Pasal 6 ayat (1) PP Nomor 57 Tahun 2021, standar kompetensi lulusan pada jenjang pendidikan dasar difokuskan pada apa?",
     options: [
       "Persiapan menjadi anggota masyarakat yang berakhlak mulia dan mandiri",
       "Penanaman karakter sesuai nilai-nilai Pancasila serta kompetensi literasi dan numerasi",
@@ -107,11 +107,11 @@ const QUESTIONS = [
       "Pengetahuan untuk melanjutkan pendidikan lebih lanjut",
     ],
     correct: 1,
-    explain: "Pasal 6 ayat (1): standar kompetensi lulusan pada jenjang pendidikan dasar difokuskan pada penanaman karakter sesuai nilai-nilai Pancasila serta kompetensi literasi dan numerasi peserta didik.",
+    explain: "Pasal 6 ayat (1) PP Nomor 57 Tahun 2021: standar kompetensi lulusan pada jenjang pendidikan dasar difokuskan pada penanaman karakter sesuai nilai-nilai Pancasila serta kompetensi literasi dan numerasi peserta didik.",
   },
   {
     topic: "snp",
-    q: "Berdasarkan Pasal 16 ayat (5), penilaian hasil belajar peserta didik berbentuk apa?",
+    q: "Berdasarkan Pasal 16 ayat (5) PP Nomor 57 Tahun 2021, penilaian hasil belajar peserta didik berbentuk apa?",
     options: [
       "Penilaian formatif dan sumatif",
       "Penilaian tertulis dan lisan",
@@ -119,18 +119,18 @@ const QUESTIONS = [
       "Penilaian kognitif dan psikomotorik",
     ],
     correct: 0,
-    explain: "Pasal 16 ayat (5) menyatakan penilaian hasil belajar peserta didik berbentuk penilaian formatif dan penilaian sumatif.",
+    explain: "Pasal 16 ayat (5) PP Nomor 57 Tahun 2021 menyatakan penilaian hasil belajar peserta didik berbentuk penilaian formatif dan penilaian sumatif.",
   },
   {
     topic: "snp",
-    q: "Menurut Pasal 28, rencana kerja jangka menengah satuan pendidikan disusun untuk periode berapa tahun?",
+    q: "Menurut Pasal 28 PP Nomor 57 Tahun 2021, rencana kerja jangka menengah satuan pendidikan disusun untuk periode berapa tahun?",
     options: ["1 tahun", "2 tahun", "4 tahun", "5 tahun"],
     correct: 2,
-    explain: "Pasal 28 ayat (4) menyatakan rencana kerja jangka menengah disusun untuk periode 4 (empat) tahun, dijabarkan setiap tahun melalui rencana kerja jangka pendek.",
+    explain: "Pasal 28 ayat (4) PP Nomor 57 Tahun 2021 menyatakan rencana kerja jangka menengah disusun untuk periode 4 (empat) tahun, dijabarkan setiap tahun melalui rencana kerja jangka pendek.",
   },
   {
     topic: "snp",
-    q: "Berdasarkan Pasal 32, pembiayaan pendidikan pada satuan pendidikan terdiri atas apa?",
+    q: "Berdasarkan Pasal 32 PP Nomor 57 Tahun 2021, pembiayaan pendidikan pada satuan pendidikan terdiri atas apa?",
     options: [
       "Biaya investasi dan biaya operasional",
       "Biaya rutin dan biaya pembangunan",
@@ -138,11 +138,11 @@ const QUESTIONS = [
       "Biaya langsung dan biaya tidak langsung",
     ],
     correct: 0,
-    explain: "Pasal 32 ayat (2): pembiayaan pendidikan terdiri atas biaya investasi (lahan, sarpras, SDM, modal kerja tetap) dan biaya operasional (personalia dan nonpersonalia).",
+    explain: "Pasal 32 ayat (2) PP Nomor 57 Tahun 2021: pembiayaan pendidikan terdiri atas biaya investasi (lahan, sarpras, SDM, modal kerja tetap) dan biaya operasional (personalia dan nonpersonalia).",
   },
   {
     topic: "snp",
-    q: "Sesuai PP Nomor 4 Tahun 2022, akreditasi untuk satuan/program pendidikan pada jenjang pendidikan tinggi dilaksanakan oleh?",
+    q: "Sesuai Pasal 51A PP Nomor 4 Tahun 2022, akreditasi untuk satuan/program pendidikan pada jenjang pendidikan tinggi dilaksanakan oleh?",
     options: [
       "BSANP",
       "Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT)",
@@ -150,7 +150,7 @@ const QUESTIONS = [
       "Kementerian secara langsung tanpa lembaga khusus",
     ],
     correct: 1,
-    explain: "Pasal 51A PP 4/2022 mengatur akreditasi oleh Pemerintah Pusat dilaksanakan oleh badan standardisasi, penjaminan, dan pengendalian mutu untuk PAUD, dikdas, dan dikmen; serta oleh Badan Akreditasi Nasional Perguruan Tinggi untuk jenjang pendidikan tinggi.",
+    explain: "Pasal 51A PP Nomor 4 Tahun 2022 mengatur akreditasi oleh Pemerintah Pusat dilaksanakan oleh badan standardisasi, penjaminan, dan pengendalian mutu untuk PAUD, dikdas, dan dikmen; serta oleh Badan Akreditasi Nasional Perguruan Tinggi untuk jenjang pendidikan tinggi.",
   },
   {
     topic: "rapor",
@@ -253,8 +253,23 @@ function showScreen(name) {
 }
 
 // --- Start screen ---
+const elNameInput = document.getElementById("player-name");
+const elNameError = document.getElementById("name-error");
+
+elNameInput.addEventListener("input", () => {
+  elNameError.hidden = true;
+  elNameInput.classList.remove("invalid");
+});
+
 document.getElementById("btn-start").addEventListener("click", () => {
-  playerName = document.getElementById("player-name").value.trim();
+  const name = elNameInput.value.trim();
+  if (!name) {
+    elNameError.hidden = false;
+    elNameInput.classList.add("invalid");
+    elNameInput.focus();
+    return;
+  }
+  playerName = name;
   currentIndex = 0;
   answers = new Array(QUESTIONS.length).fill(null);
   renderQuestion();
@@ -267,10 +282,11 @@ function goHome() {
   currentIndex = 0;
   answers = new Array(QUESTIONS.length).fill(null);
   playerName = "";
-  const nameInput = document.getElementById("player-name");
-  nameInput.value = "";
+  elNameInput.value = "";
+  elNameError.hidden = true;
+  elNameInput.classList.remove("invalid");
   showScreen("start");
-  nameInput.focus();
+  elNameInput.focus();
 }
 
 document.getElementById("btn-home-quiz").addEventListener("click", () => {
@@ -381,9 +397,7 @@ function showResult() {
 
   const pct = Math.round((correctCount / total) * 100);
 
-  document.getElementById("result-name").textContent = playerName
-    ? `Hasil kuis untuk ${playerName}`
-    : "Berikut hasil kuis Anda";
+  document.getElementById("result-name").textContent = `Hasil kuis untuk ${playerName}`;
   document.getElementById("score-value").textContent = `${pct}%`;
   document.getElementById("score-ring").style.setProperty("--pct", pct);
   document.getElementById("score-correct").textContent = correctCount;
@@ -401,13 +415,13 @@ function showResult() {
     message = "Dasar pemahaman sudah ada. Yuk pelajari kembali pembahasan di bawah.";
   } else {
     title = "Ayo Belajar Lagi";
-    message = "Baca kembali Permendikdasmen No. 21/2026, PP No. 57/2021, dan materi Rapor Pendidikan.";
+    message = "Baca kembali Permendikdasmen Nomor 21 Tahun 2026, PP Nomor 57 Tahun 2021, dan materi Rapor Pendidikan.";
   }
   document.getElementById("result-title").textContent = title;
   document.getElementById("score-message").textContent = message;
 
   submitResultToSheet({
-    nama: playerName || "(tanpa nama)",
+    nama: playerName,
     skorPersen: pct,
     jumlahBenar: correctCount,
     totalSoal: total,

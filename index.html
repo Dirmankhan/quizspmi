@@ -42,8 +42,9 @@
         </ul>
 
         <div class="field">
-          <label for="player-name">Nama peserta (opsional)</label>
-          <input type="text" id="player-name" placeholder="Masukkan nama Anda">
+          <label for="player-name">Nama peserta <span class="required-mark">*</span></label>
+          <input type="text" id="player-name" placeholder="Masukkan nama Anda" required>
+          <p id="name-error" class="field-error" hidden>Nama wajib diisi sebelum memulai kuis.</p>
         </div>
 
         <button id="btn-start" class="btn btn-primary btn-block">Mulai Kuis</button>
