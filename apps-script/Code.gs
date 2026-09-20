@@ -18,11 +18,6 @@
  * Deploy. Deployment lama tidak otomatis memakai kode terbaru.
  */
 
-// Password untuk membuka halaman report admin. Diperiksa di sini (server),
-// bukan di browser, supaya data rekap tidak pernah terkirim ke browser
-// kalau password yang dimasukkan salah. Ubah nilainya kapan saja.
-var REPORT_PASSWORD = "bpmpntb-admin2026";
-
 // Zona waktu WITA, dipakai untuk menentukan "hari ini" dan jendela jam
 // laporan hari berjalan.
 var TIMEZONE = "Asia/Makassar";
@@ -69,17 +64,13 @@ function doPost(e) {
 }
 
 // doGet melayani dua hal:
-// - ?action=report&password=...&callback=...  -> data report (JSONP)
+// - ?action=report&callback=...  -> data report (JSONP)
 // - tanpa parameter -> health check biasa (buka URL /exec langsung)
 function doGet(e) {
   var params = (e && e.parameter) || {};
 
   if (params.action === "report") {
-    var payload =
-      params.password === REPORT_PASSWORD
-        ? { status: "ok", data: buildReport() }
-        : { status: "error", message: "Password salah." };
-    return respond(payload, params.callback);
+    return respond({ status: "ok", data: buildReport() }, params.callback);
   }
 
   return respond(

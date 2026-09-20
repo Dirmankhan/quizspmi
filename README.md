@@ -63,33 +63,31 @@ version** → **Deploy**. URL `/exec` tetap sama, tidak perlu diganti di
 | Benar/Total per topik | SPMI/SPME, SNP, Rapor Pendidikan |
 | Detail Jawaban (JSON) | Jawaban tiap soal (untuk audit/analisis lanjutan) |
 
-## Password
+## Password kuis
 
-Ada dua password terpisah, keduanya bisa diganti kapan saja:
+Halaman kuis (`index.html`) dikunci password sebelum peserta bisa mulai:
 
-| Halaman | Password default | Diperiksa di | Ubah di |
-|---|---|---|---|
-| Kuis (`index.html`) | `spmi2026` | Browser peserta | Konstanta `QUIZ_PASSWORD` di `script.js` |
-| Report admin (`report.html`) | `bpmpntb-admin2026` | Server (Apps Script) | Konstanta `REPORT_PASSWORD` di `apps-script/Code.gs` |
+| Password default | Diperiksa di | Ubah di |
+|---|---|---|
+| `spmi2026` | Browser peserta | Konstanta `QUIZ_PASSWORD` di `script.js` |
 
-Password kuis hanya proteksi ringan sisi-browser (mencegah akses tidak
-sengaja/casual) — siapa pun yang membuka "View Source" bisa membacanya,
-karena kuis ini halaman statis tanpa server. Cukup untuk mengontrol siapa
-yang mulai mengerjakan, tapi jangan andalkan untuk data yang benar-benar
-rahasia.
+Ini proteksi ringan sisi-browser (mencegah akses tidak sengaja/casual) —
+siapa pun yang membuka "View Source" bisa membacanya, karena kuis ini
+halaman statis tanpa server. Cukup untuk mengontrol siapa yang mulai
+mengerjakan, tapi jangan andalkan untuk data yang benar-benar rahasia.
 
-Password report diperiksa di Apps Script (server), jadi kalau salah, data
-rekap tidak pernah ikut terkirim ke browser — ini proteksi yang lebih kuat
-karena mengubahnya berarti redeploy Apps Script (lihat langkah di atas).
+Setelah password benar, sesi browser tersebut tidak akan ditanya lagi
+sampai tab/browser ditutup — cocok untuk satu perangkat dipakai bergiliran
+oleh banyak peserta dalam satu sesi kegiatan.
 
-Setelah password benar di kuis, sesi browser tersebut tidak akan ditanya
-lagi sampai tab/browser ditutup — cocok untuk satu perangkat dipakai
-bergiliran oleh banyak peserta dalam satu sesi kegiatan.
+`report.html` (lihat di bawah) **tidak** dikunci password — siapa pun yang
+tahu URL-nya, termasuk peserta, bisa melihatnya.
 
-## Report admin (`report.html`)
+## Report (`report.html`)
 
 Menampilkan persentase jawaban benar per topik (SPMI/SPME, SNP, Rapor
-Pendidikan), dibagi dua bagian:
+Pendidikan), dibagi dua bagian, terbuka untuk siapa saja (peserta maupun
+admin):
 
 - **Akumulasi** (bagian atas) — seluruh jawaban dari hari-hari *sebelum*
   hari ini, terus terakumulasi dari waktu ke waktu.
@@ -105,7 +103,7 @@ yang sama dengan yang dipakai kuis.
 
 ```
 index.html            Markup layar kuis (gerbang password, mulai, soal, hasil, pembahasan)
-report.html            Markup halaman report admin (gerbang password, report)
+report.html            Markup halaman report (terbuka, tanpa password)
 style.css              Tampilan & tema (light/dark otomatis), dipakai kedua halaman
 script.js              Data 20 soal, logika kuis, gerbang password, pengiriman rekap
 report.js              Pengambilan & render data report (JSONP ke Apps Script)

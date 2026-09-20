@@ -9,29 +9,11 @@
 <body>
   <div class="app">
 
-    <!-- SCREEN: GATE (password admin) -->
-    <section id="screen-gate" class="screen active">
-      <div class="card">
-        <p class="eyebrow">Report Admin</p>
-        <h1>Masukkan Password Admin</h1>
-        <p class="lead">Halaman ini menampilkan nama dan skor peserta. Password diperiksa di server, bukan di browser.</p>
-
-        <div class="field">
-          <label for="gate-password">Password Admin</label>
-          <input type="password" id="gate-password" placeholder="Masukkan password admin" autocomplete="off">
-          <p id="gate-error" class="field-error" hidden>Password salah, atau gagal menghubungi server. Coba lagi.</p>
-        </div>
-
-        <button id="btn-gate-submit" class="btn btn-primary btn-block">Buka Report</button>
-      </div>
-    </section>
-
-    <!-- SCREEN: REPORT -->
-    <section id="screen-report" class="screen">
+    <section id="screen-report" class="screen active">
       <div class="card card-wide">
         <div class="report-header">
           <div>
-            <p class="eyebrow">Report Admin</p>
+            <p class="eyebrow">Report Kuis</p>
             <h1>Persentase Jawaban Benar per Topik</h1>
             <p id="report-generated-at" class="lead"></p>
           </div>
@@ -39,6 +21,7 @@
         </div>
 
         <div id="report-load-error" class="field-error" hidden></div>
+        <div id="report-loading" class="hint">Memuat data report...</div>
 
         <div class="report-group">
           <h2>Akumulasi (Sebelum Hari Ini)</h2>
