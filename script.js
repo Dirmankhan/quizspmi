@@ -214,7 +214,7 @@ const QUESTIONS = [
 // Tempelkan URL Web App Google Apps Script di sini setelah deploy
 // (lihat panduan di apps-script/Code.gs). Kosongkan ("") untuk menonaktifkan
 // pengiriman rekap dan menjalankan kuis dalam mode lokal saja.
-const RESULTS_ENDPOINT = "";
+const RESULTS_ENDPOINT = "https://script.google.com/macros/s/AKfycbwAO_BIJAKpC-gaXmjFGEIaKD-Z_N1UDnFSya1R4YQFH3ycRrpQygS22DkYpkGZeg-pjQ/exec";
 
 // Mengirim rekap hasil kuis ke Google Sheet admin (via Apps Script Web App).
 // Menggunakan mode "no-cors" karena Apps Script Web App tidak mengirim header
