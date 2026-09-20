@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuis SPMI, SNP &amp; Rapor Pendidikan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- SCREEN: START -->
+    <section id="screen-start" class="screen active">
+      <div class="card">
+        <p class="eyebrow">Kuis Interaktif</p>
+        <h1>Sistem Penjaminan Mutu, Standar Nasional Pendidikan &amp; Rapor Pendidikan</h1>
+        <p class="lead">
+          Uji pemahaman Anda tentang Permendikdasmen Nomor 21 Tahun 2026 tentang Sistem Penjaminan
+          Mutu Pendidikan (SPMI/SPME), Standar Nasional Pendidikan (PP Nomor 57 Tahun 2021), dan
+          Rapor Pendidikan Satuan Pendidikan.
+        </p>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-num">20</span>
+            <span class="info-label">Soal pilihan ganda</span>
+          </div>
+          <div class="info-item">
+            <span class="info-num">3</span>
+            <span class="info-label">Topik utama</span>
+          </div>
+          <div class="info-item">
+            <span class="info-num">±10</span>
+            <span class="info-label">Menit</span>
+          </div>
+        </div>
+
+        <ul class="topic-list">
+          <li><span class="dot dot-a"></span> Sistem Penjaminan Mutu Pendidikan (SPMI &amp; SPME)</li>
+          <li><span class="dot dot-b"></span> Standar Nasional Pendidikan (8 SNP)</li>
+          <li><span class="dot dot-c"></span> Rapor Pendidikan Satuan Pendidikan</li>
+        </ul>
+
+        <div class="field">
+          <label for="player-name">Nama peserta (opsional)</label>
+          <input type="text" id="player-name" placeholder="Masukkan nama Anda">
+        </div>
+
+        <button id="btn-start" class="btn btn-primary btn-block">Mulai Kuis</button>
+        <p class="hint">Setiap soal hanya memiliki satu jawaban benar. Skor dan pembahasan akan tampil di akhir kuis.</p>
+      </div>
+    </section>
+
+    <!-- SCREEN: QUIZ -->
+    <section id="screen-quiz" class="screen">
+      <div class="card card-quiz">
+        <div class="quiz-header">
+          <div class="progress-wrap">
+            <div class="progress-track">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div class="progress-meta">
+              <span id="question-counter">Soal 1 / 20</span>
+              <span id="topic-tag" class="topic-tag">SPMI</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="question-text" class="question-text"></h2>
+
+        <div id="options-list" class="options-list"></div>
+
+        <div class="quiz-footer">
+          <button id="btn-prev" class="btn btn-ghost" disabled>&larr; Sebelumnya</button>
+          <span id="answer-status" class="answer-status"></span>
+          <button id="btn-next" class="btn btn-primary" disabled>Selanjutnya &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN: RESULT -->
+    <section id="screen-result" class="screen">
+      <div class="card">
+        <p class="eyebrow">Hasil Kuis</p>
+        <h1 id="result-title">Kerja Bagus!</h1>
+        <p id="result-name" class="lead"></p>
+
+        <div class="score-ring-wrap">
+          <div id="score-ring" class="score-ring">
+            <span id="score-value" class="score-value">0%</span>
+          </div>
+          <div class="score-detail">
+            <p><span id="score-correct">0</span> dari <span id="score-total">20</span> jawaban benar</p>
+            <p id="score-message" class="score-message"></p>
+          </div>
+        </div>
+
+        <div id="topic-breakdown" class="topic-breakdown"></div>
+
+        <div class="result-actions">
+          <button id="btn-review" class="btn btn-ghost btn-block">Lihat Pembahasan</button>
+          <button id="btn-retry" class="btn btn-primary btn-block">Ulangi Kuis</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN: REVIEW -->
+    <section id="screen-review" class="screen">
+      <div class="card card-wide">
+        <p class="eyebrow">Pembahasan</p>
+        <h1>Kunci Jawaban &amp; Penjelasan</h1>
+        <div id="review-list" class="review-list"></div>
+        <button id="btn-back-result" class="btn btn-primary btn-block">Kembali ke Hasil</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
