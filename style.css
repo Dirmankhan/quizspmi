@@ -401,6 +401,45 @@ h1 {
   gap: 10px;
 }
 
+/* REPORT SCREEN */
+.report-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.report-header .lead { margin-bottom: 0; }
+
+.report-group {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+}
+.report-group:first-of-type { border-top: none; padding-top: 8px; }
+.report-group h2 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+.report-meta {
+  margin: 0 0 14px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.report-overall {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+.report-overall strong { color: var(--ink); }
+.report-stats .tb-row + .tb-row { margin-top: 12px; }
+.report-empty {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0;
+}
+
 /* REVIEW SCREEN */
 .review-list {
   display: flex;

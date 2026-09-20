@@ -9,8 +9,25 @@
 <body>
   <div class="app">
 
+    <!-- SCREEN: GATE (password) -->
+    <section id="screen-gate" class="screen active">
+      <div class="card">
+        <p class="eyebrow">Kuis Terkunci</p>
+        <h1>Masukkan Password untuk Memulai</h1>
+        <p class="lead">Kuis ini hanya untuk peserta yang mengikuti kegiatan. Minta password kepada panitia/fasilitator.</p>
+
+        <div class="field">
+          <label for="gate-password">Password</label>
+          <input type="password" id="gate-password" placeholder="Masukkan password" autocomplete="off">
+          <p id="gate-error" class="field-error" hidden>Password salah. Coba lagi.</p>
+        </div>
+
+        <button id="btn-gate-submit" class="btn btn-primary btn-block">Buka Kuis</button>
+      </div>
+    </section>
+
     <!-- SCREEN: START -->
-    <section id="screen-start" class="screen active">
+    <section id="screen-start" class="screen">
       <div class="card">
         <p class="eyebrow">Kuis Interaktif</p>
         <h1>Sistem Penjaminan Mutu, Standar Nasional Pendidikan &amp; Rapor Pendidikan</h1>

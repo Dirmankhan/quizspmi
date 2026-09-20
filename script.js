@@ -216,6 +216,13 @@ const QUESTIONS = [
 // pengiriman rekap dan menjalankan kuis dalam mode lokal saja.
 const RESULTS_ENDPOINT = "https://script.google.com/macros/s/AKfycbwAO_BIJAKpC-gaXmjFGEIaKD-Z_N1UDnFSya1R4YQFH3ycRrpQygS22DkYpkGZeg-pjQ/exec";
 
+// Password untuk membuka halaman kuis. Ini cek sisi-browser saja (cukup
+// untuk mencegah akses tidak sengaja/casual), bukan proteksi keamanan
+// sesungguhnya, karena siapa pun bisa membaca nilainya lewat "view source".
+// Ganti kapan saja dengan mengubah nilai di bawah ini.
+const QUIZ_PASSWORD = "spmi2026";
+const GATE_SESSION_KEY = "quizGateUnlocked";
+
 // Mengirim rekap hasil kuis ke Google Sheet admin (via Apps Script Web App).
 // Menggunakan mode "no-cors" karena Apps Script Web App tidak mengirim header
 // CORS; request tetap berhasil diproses di sisi server meski respons tidak
@@ -240,6 +247,7 @@ let playerName = "";
 
 // --- Elements ---
 const screens = {
+  gate: document.getElementById("screen-gate"),
   start: document.getElementById("screen-start"),
   quiz: document.getElementById("screen-quiz"),
   result: document.getElementById("screen-result"),
@@ -250,6 +258,44 @@ function showScreen(name) {
   Object.values(screens).forEach((s) => s.classList.remove("active"));
   screens[name].classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// --- Gate screen (password) ---
+const elGatePassword = document.getElementById("gate-password");
+const elGateError = document.getElementById("gate-error");
+
+function unlockGate() {
+  sessionStorage.setItem(GATE_SESSION_KEY, "1");
+  showScreen("start");
+}
+
+function attemptUnlock() {
+  if (elGatePassword.value === QUIZ_PASSWORD) {
+    unlockGate();
+  } else {
+    elGateError.hidden = false;
+    elGatePassword.classList.add("invalid");
+    elGatePassword.select();
+  }
+}
+
+elGatePassword.addEventListener("input", () => {
+  elGateError.hidden = true;
+  elGatePassword.classList.remove("invalid");
+});
+
+elGatePassword.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") attemptUnlock();
+});
+
+document.getElementById("btn-gate-submit").addEventListener("click", attemptUnlock);
+
+// Kuis sudah terbuka di sesi browser ini sebelumnya (mis. perangkat kiosk
+// bergiliran antar-peserta) -> langsung ke layar awal tanpa minta password lagi.
+if (sessionStorage.getItem(GATE_SESSION_KEY) === "1") {
+  showScreen("start");
+} else {
+  elGatePassword.focus();
 }
 
 // --- Start screen ---

@@ -46,22 +46,68 @@ Drive admin).
 Jika `RESULTS_ENDPOINT` dikosongkan (`""`), kuis tetap berjalan normal secara
 lokal — hanya saja hasil tidak dikirim ke rekap admin.
 
+**Setiap kali isi `apps-script/Code.gs` diubah**, deployment lama TIDAK
+otomatis memakai kode terbaru. Buka Apps Script editor → **Deploy > Manage
+deployments** → klik ikon pensil pada deployment aktif → **Version: New
+version** → **Deploy**. URL `/exec` tetap sama, tidak perlu diganti di
+`script.js`/`report.js`.
+
 ### Kolom di Sheet rekap
 
 | Kolom | Keterangan |
 |---|---|
 | Timestamp | Waktu submit (waktu server Google) |
-| Nama Peserta | Diisi peserta di layar awal (opsional) |
+| Nama Peserta | Wajib diisi peserta di layar awal |
 | Skor (%) | Persentase jawaban benar |
 | Jumlah Benar / Total Soal | Skor mentah |
 | Benar/Total per topik | SPMI/SPME, SNP, Rapor Pendidikan |
 | Detail Jawaban (JSON) | Jawaban tiap soal (untuk audit/analisis lanjutan) |
 
+## Password
+
+Ada dua password terpisah, keduanya bisa diganti kapan saja:
+
+| Halaman | Password default | Diperiksa di | Ubah di |
+|---|---|---|---|
+| Kuis (`index.html`) | `spmi2026` | Browser peserta | Konstanta `QUIZ_PASSWORD` di `script.js` |
+| Report admin (`report.html`) | `bpmpntb-admin2026` | Server (Apps Script) | Konstanta `REPORT_PASSWORD` di `apps-script/Code.gs` |
+
+Password kuis hanya proteksi ringan sisi-browser (mencegah akses tidak
+sengaja/casual) — siapa pun yang membuka "View Source" bisa membacanya,
+karena kuis ini halaman statis tanpa server. Cukup untuk mengontrol siapa
+yang mulai mengerjakan, tapi jangan andalkan untuk data yang benar-benar
+rahasia.
+
+Password report diperiksa di Apps Script (server), jadi kalau salah, data
+rekap tidak pernah ikut terkirim ke browser — ini proteksi yang lebih kuat
+karena mengubahnya berarti redeploy Apps Script (lihat langkah di atas).
+
+Setelah password benar di kuis, sesi browser tersebut tidak akan ditanya
+lagi sampai tab/browser ditutup — cocok untuk satu perangkat dipakai
+bergiliran oleh banyak peserta dalam satu sesi kegiatan.
+
+## Report admin (`report.html`)
+
+Menampilkan persentase jawaban benar per topik (SPMI/SPME, SNP, Rapor
+Pendidikan), dibagi dua bagian:
+
+- **Akumulasi** (bagian atas) — seluruh jawaban dari hari-hari *sebelum*
+  hari ini, terus terakumulasi dari waktu ke waktu.
+- **Hari Ini** (bagian bawah) — jawaban hari ini yang masuk pukul
+  **07:30–11:00 WITA**. Jawaban hari ini di luar jam tersebut tidak masuk
+  ke bagian mana pun (sesuai maksud laporan: memantau sesi pagi hari itu).
+
+Data diambil langsung dari Sheet rekap setiap halaman dibuka atau tombol
+**Muat Ulang** diklik — tidak perlu setup tambahan selain `apps-script/Code.gs`
+yang sama dengan yang dipakai kuis.
+
 ## Struktur proyek
 
 ```
-index.html          Markup 4 layar kuis (mulai, soal, hasil, pembahasan)
-style.css            Tampilan & tema (light/dark otomatis)
-script.js            Data 20 soal, logika kuis, pengiriman rekap
-apps-script/Code.gs   Kode Google Apps Script untuk menerima rekap hasil kuis
+index.html            Markup layar kuis (gerbang password, mulai, soal, hasil, pembahasan)
+report.html            Markup halaman report admin (gerbang password, report)
+style.css              Tampilan & tema (light/dark otomatis), dipakai kedua halaman
+script.js              Data 20 soal, logika kuis, gerbang password, pengiriman rekap
+report.js              Pengambilan & render data report (JSONP ke Apps Script)
+apps-script/Code.gs     Kode Google Apps Script: terima submit kuis + layani data report
 ```
