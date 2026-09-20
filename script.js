@@ -330,33 +330,20 @@ function renderQuestion() {
     btn.className = "option";
     btn.innerHTML = `<span class="opt-letter">${LETTERS[idx]}</span><span>${optText}</span>`;
 
-    if (selected !== null) {
-      btn.classList.add("disabled");
-      btn.disabled = true;
-      if (idx === selected) btn.classList.add("selected");
-    }
+    if (idx === selected) btn.classList.add("selected");
 
     btn.addEventListener("click", () => selectAnswer(idx));
     elOptionsList.appendChild(btn);
   });
 
   elBtnPrev.disabled = currentIndex === 0;
-
-  if (selected !== null) {
-    elBtnNext.disabled = false;
-    elAnswerStatus.textContent = "Jawaban tersimpan";
-    elAnswerStatus.className = "answer-status";
-  } else {
-    elBtnNext.disabled = true;
-    elAnswerStatus.textContent = "";
-    elAnswerStatus.className = "answer-status";
-  }
+  elBtnNext.disabled = selected === null;
+  elAnswerStatus.textContent = selected !== null ? "Jawaban tersimpan" : "";
 
   elBtnNext.textContent = currentIndex === total - 1 ? "Lihat Hasil →" : "Selanjutnya →";
 }
 
 function selectAnswer(idx) {
-  if (answers[currentIndex] !== null) return; // already answered, lock it
   answers[currentIndex] = idx;
   renderQuestion();
 }

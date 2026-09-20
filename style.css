@@ -320,8 +320,6 @@ h1 {
   border-color: var(--primary);
 }
 
-.option.disabled { cursor: default; }
-
 .quiz-footer {
   display: flex;
   align-items: center;
