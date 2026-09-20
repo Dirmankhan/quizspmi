@@ -211,6 +211,28 @@ const QUESTIONS = [
   },
 ];
 
+// Tempelkan URL Web App Google Apps Script di sini setelah deploy
+// (lihat panduan di apps-script/Code.gs). Kosongkan ("") untuk menonaktifkan
+// pengiriman rekap dan menjalankan kuis dalam mode lokal saja.
+const RESULTS_ENDPOINT = "";
+
+// Mengirim rekap hasil kuis ke Google Sheet admin (via Apps Script Web App).
+// Menggunakan mode "no-cors" karena Apps Script Web App tidak mengirim header
+// CORS; request tetap berhasil diproses di sisi server meski respons tidak
+// bisa dibaca di browser. Gagal kirim tidak akan mengganggu tampilan hasil
+// kuis bagi peserta (fail-silent).
+function submitResultToSheet(payload) {
+  if (!RESULTS_ENDPOINT) return;
+  fetch(RESULTS_ENDPOINT, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(payload),
+  }).catch(() => {
+    // Diamkan: peserta tetap melihat hasilnya meski pengiriman rekap gagal.
+  });
+}
+
 // --- State ---
 let currentIndex = 0;
 let answers = new Array(QUESTIONS.length).fill(null); // stores selected option index
@@ -360,6 +382,25 @@ function showResult() {
   }
   document.getElementById("result-title").textContent = title;
   document.getElementById("score-message").textContent = message;
+
+  submitResultToSheet({
+    nama: playerName || "(tanpa nama)",
+    skorPersen: pct,
+    jumlahBenar: correctCount,
+    totalSoal: total,
+    spmiBenar: topicStats.spmi.correct,
+    spmiTotal: topicStats.spmi.total,
+    snpBenar: topicStats.snp.correct,
+    snpTotal: topicStats.snp.total,
+    raporBenar: topicStats.rapor.correct,
+    raporTotal: topicStats.rapor.total,
+    detail: QUESTIONS.map((item, i) => ({
+      soal: i + 1,
+      topik: item.topic,
+      jawaban: answers[i],
+      benar: answers[i] === item.correct,
+    })),
+  });
 
   const breakdownEl = document.getElementById("topic-breakdown");
   breakdownEl.innerHTML = "";
