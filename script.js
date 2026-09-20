@@ -261,6 +261,29 @@ document.getElementById("btn-start").addEventListener("click", () => {
   showScreen("quiz");
 });
 
+// Mengembalikan perangkat ke layar awal, siap dipakai peserta berikutnya
+// dengan nama baru (mendukung penggunaan 1 perangkat bergiliran).
+function goHome() {
+  currentIndex = 0;
+  answers = new Array(QUESTIONS.length).fill(null);
+  playerName = "";
+  const nameInput = document.getElementById("player-name");
+  nameInput.value = "";
+  showScreen("start");
+  nameInput.focus();
+}
+
+document.getElementById("btn-home-quiz").addEventListener("click", () => {
+  const hasProgress = answers.some((a) => a !== null);
+  if (hasProgress && !confirm("Yakin ingin membatalkan kuis ini dan kembali ke beranda? Jawaban yang sudah diisi akan hilang.")) {
+    return;
+  }
+  goHome();
+});
+
+document.getElementById("btn-home-result").addEventListener("click", goHome);
+document.getElementById("btn-home-review").addEventListener("click", goHome);
+
 // --- Quiz rendering ---
 const elCounter = document.getElementById("question-counter");
 const elTopicTag = document.getElementById("topic-tag");

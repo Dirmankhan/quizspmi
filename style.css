@@ -208,6 +208,22 @@ h1 {
 /* QUIZ SCREEN */
 .card-quiz { padding: 26px 24px; }
 .quiz-header { margin-bottom: 22px; }
+.quiz-header-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.link-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.link-btn:hover { color: var(--primary); }
 .progress-track {
   height: 8px;
   border-radius: 999px;

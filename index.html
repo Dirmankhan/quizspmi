@@ -55,6 +55,9 @@
     <section id="screen-quiz" class="screen">
       <div class="card card-quiz">
         <div class="quiz-header">
+          <div class="quiz-header-top">
+            <button id="btn-home-quiz" class="link-btn" type="button">&larr; Beranda</button>
+          </div>
           <div class="progress-wrap">
             <div class="progress-track">
               <div id="progress-fill" class="progress-fill"></div>
@@ -99,8 +102,10 @@
 
         <div class="result-actions">
           <button id="btn-review" class="btn btn-ghost btn-block">Lihat Pembahasan</button>
-          <button id="btn-retry" class="btn btn-primary btn-block">Ulangi Kuis</button>
+          <button id="btn-retry" class="btn btn-ghost btn-block">Ulangi Kuis (Peserta Sama)</button>
+          <button id="btn-home-result" class="btn btn-primary btn-block">Peserta Berikutnya &rarr;</button>
         </div>
+        <p class="hint">Hasil sudah tersimpan. Serahkan perangkat ke peserta berikutnya untuk mulai dengan nama baru.</p>
       </div>
     </section>
 
@@ -110,7 +115,10 @@
         <p class="eyebrow">Pembahasan</p>
         <h1>Kunci Jawaban &amp; Penjelasan</h1>
         <div id="review-list" class="review-list"></div>
-        <button id="btn-back-result" class="btn btn-primary btn-block">Kembali ke Hasil</button>
+        <div class="result-actions">
+          <button id="btn-back-result" class="btn btn-ghost btn-block">Kembali ke Hasil</button>
+          <button id="btn-home-review" class="btn btn-primary btn-block">Peserta Berikutnya &rarr;</button>
+        </div>
       </div>
     </section>
 
