@@ -333,9 +333,7 @@ function renderQuestion() {
     if (selected !== null) {
       btn.classList.add("disabled");
       btn.disabled = true;
-      if (idx === item.correct) btn.classList.add("correct");
-      if (idx === selected && selected !== item.correct) btn.classList.add("incorrect");
-      if (idx === selected && selected === item.correct) btn.classList.add("selected");
+      if (idx === selected) btn.classList.add("selected");
     }
 
     btn.addEventListener("click", () => selectAnswer(idx));
@@ -346,9 +344,8 @@ function renderQuestion() {
 
   if (selected !== null) {
     elBtnNext.disabled = false;
-    const isCorrect = selected === item.correct;
-    elAnswerStatus.textContent = isCorrect ? "Jawaban benar!" : "Jawaban kurang tepat";
-    elAnswerStatus.className = `answer-status ${isCorrect ? "correct" : "incorrect"}`;
+    elAnswerStatus.textContent = "Jawaban tersimpan";
+    elAnswerStatus.className = "answer-status";
   } else {
     elBtnNext.disabled = true;
     elAnswerStatus.textContent = "";

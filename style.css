@@ -320,26 +320,6 @@ h1 {
   border-color: var(--primary);
 }
 
-.option.correct {
-  border-color: var(--success);
-  background: var(--success-soft);
-}
-.option.correct .opt-letter {
-  background: var(--success);
-  color: #fff;
-  border-color: var(--success);
-}
-
-.option.incorrect {
-  border-color: var(--danger);
-  background: var(--danger-soft);
-}
-.option.incorrect .opt-letter {
-  background: var(--danger);
-  color: #fff;
-  border-color: var(--danger);
-}
-
 .option.disabled { cursor: default; }
 
 .quiz-footer {
@@ -355,8 +335,6 @@ h1 {
   flex: 1;
   text-align: center;
 }
-.answer-status.correct { color: var(--success); }
-.answer-status.incorrect { color: var(--danger); }
 
 /* RESULT SCREEN */
 .score-ring-wrap {
