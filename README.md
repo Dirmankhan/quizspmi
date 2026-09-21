@@ -80,10 +80,10 @@ Setelah password benar, sesi browser tersebut tidak akan ditanya lagi
 sampai tab/browser ditutup — cocok untuk satu perangkat dipakai bergiliran
 oleh banyak peserta dalam satu sesi kegiatan.
 
-`report.html` (lihat di bawah) **tidak** dikunci password — siapa pun yang
-tahu URL-nya, termasuk peserta, bisa melihatnya.
+Report (lihat di bawah) **tidak** dikunci password — siapa pun yang membuka
+`index.html`, termasuk peserta, langsung melihatnya di sebelah kuis.
 
-## Report (`report.html`)
+## Report
 
 Menampilkan persentase jawaban benar per topik (SPMI/SPME, SNP, Rapor
 Pendidikan), dibagi dua bagian, terbuka untuk siapa saja (peserta maupun
@@ -95,17 +95,27 @@ admin):
   **07:30–11:00 WITA**. Jawaban hari ini di luar jam tersebut tidak masuk
   ke bagian mana pun (sesuai maksud laporan: memantau sesi pagi hari itu).
 
-Data diambil langsung dari Sheet rekap setiap halaman dibuka atau tombol
-**Muat Ulang** diklik — tidak perlu setup tambahan selain `apps-script/Code.gs`
-yang sama dengan yang dipakai kuis.
+Report ini tampil dengan dua cara:
+
+1. **Panel di sebelah kanan kuis** — begitu `index.html` dibuka, panel report
+   langsung tampil berdampingan dengan kuis (di layar sempit/HP, panel ini
+   pindah ke bawah kuis, bukan terpotong).
+2. **Halaman `report.html` tersendiri** — kalau ingin ditampilkan sendirian
+   (misalnya di layar proyektor terpisah tanpa kuis di sampingnya).
+
+Keduanya mengambil data yang sama langsung dari Sheet rekap setiap halaman
+dibuka atau tombol **Muat Ulang** diklik — tidak perlu setup tambahan selain
+`apps-script/Code.gs` yang sama dengan yang dipakai kuis.
 
 ## Struktur proyek
 
 ```
-index.html            Markup layar kuis (gerbang password, mulai, soal, hasil, pembahasan)
-report.html            Markup halaman report (terbuka, tanpa password)
+index.html            Markup kuis (gerbang password, mulai, soal, hasil, pembahasan)
+                        + panel report di sebelah kanan
+report.html            Report sebagai halaman tersendiri (opsional, tanpa password)
 style.css              Tampilan & tema (light/dark otomatis), dipakai kedua halaman
 script.js              Data 20 soal, logika kuis, gerbang password, pengiriman rekap
-report.js              Pengambilan & render data report (JSONP ke Apps Script)
+report.js              Pengambilan & render data report (JSONP ke Apps Script),
+                        dipakai bersama oleh index.html dan report.html
 apps-script/Code.gs     Kode Google Apps Script: terima submit kuis + layani data report
 ```

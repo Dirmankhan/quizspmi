@@ -63,12 +63,24 @@ body {
   min-height: 100vh;
 }
 
-.app {
+.layout {
   min-height: 100vh;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
+  gap: 24px;
   padding: 32px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 680px;
+}
+
+.report-panel {
+  width: 100%;
+  max-width: 420px;
 }
 
 .screen {
