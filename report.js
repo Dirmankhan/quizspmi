@@ -54,7 +54,31 @@ function formatDateLabel(dateStr) {
   return date.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 }
 
-function renderGroup(statsEl, metaEl, group, metaExtra) {
+// Nama peserta adalah input bebas dari pengguna, jadi harus di-escape
+// sebelum disisipkan lewat innerHTML supaya tidak bisa menyuntik HTML/JS.
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function renderTop3(top3) {
+  if (!top3 || top3.length === 0) return "";
+
+  let html = `<div class="leaderboard"><p class="leaderboard-title">Top 3 Skor Tertinggi</p>`;
+  top3.forEach((entry, i) => {
+    html += `
+      <div class="leaderboard-item">
+        <span class="leaderboard-rank">${i + 1}</span>
+        <span class="leaderboard-name">${escapeHtml(entry.nama)}</span>
+        <span class="leaderboard-score">${entry.skorPersen}%<span class="leaderboard-sub"> (${entry.jumlahBenar}/${entry.totalSoal})</span></span>
+      </div>`;
+  });
+  html += `</div>`;
+  return html;
+}
+
+function renderGroup(statsEl, metaEl, group, metaExtra, showTop3) {
   const metaParts = [`${group.participants} peserta`];
   if (metaExtra) metaParts.push(metaExtra);
   metaEl.textContent = metaParts.join(" · ");
@@ -66,6 +90,8 @@ function renderGroup(statsEl, metaEl, group, metaExtra) {
 
   const overallText = group.overallPct !== null ? `${group.overallPct}%` : "-";
   let html = `<div class="report-overall">Rata-rata keseluruhan: <strong>${overallText}</strong></div>`;
+
+  if (showTop3) html += renderTop3(group.top3);
 
   Object.entries(TOPIC_META).forEach(([key, meta]) => {
     const t = group.topics[key];
@@ -90,12 +116,12 @@ function renderReport(data) {
   document.getElementById("report-generated-at").textContent =
     "Diperbarui " + new Date(data.generatedAt).toLocaleString("id-ID", { dateStyle: "medium", timeStyle: "short" }) + " WITA";
 
-  renderGroup(document.getElementById("akumulasi-stats"), document.getElementById("akumulasi-meta"), data.akumulasi, null);
+  renderGroup(document.getElementById("akumulasi-stats"), document.getElementById("akumulasi-meta"), data.akumulasi, null, true);
 
   const hariIniExtra = data.hariIni.dateLabel
     ? `${formatDateLabel(data.hariIni.dateLabel)} · ${data.windowLabel}`
     : data.windowLabel;
-  renderGroup(document.getElementById("harini-stats"), document.getElementById("harini-meta"), data.hariIni, hariIniExtra);
+  renderGroup(document.getElementById("harini-stats"), document.getElementById("harini-meta"), data.hariIni, hariIniExtra, false);
 }
 
 async function loadReport() {

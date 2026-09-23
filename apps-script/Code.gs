@@ -145,6 +145,7 @@ function emptyGroup() {
     snpTotal: 0,
     raporBenar: 0,
     raporTotal: 0,
+    entries: [],
   };
 }
 
@@ -156,10 +157,28 @@ function addRowToGroup(group, row) {
   group.snpTotal += Number(row[COL.SNP_TOTAL]) || 0;
   group.raporBenar += Number(row[COL.RAPOR_BENAR]) || 0;
   group.raporTotal += Number(row[COL.RAPOR_TOTAL]) || 0;
+  group.entries.push({
+    nama: row[COL.NAMA] || "(tanpa nama)",
+    skorPersen: Number(row[COL.SKOR_PERSEN]) || 0,
+    jumlahBenar: Number(row[COL.JUMLAH_BENAR]) || 0,
+    totalSoal: Number(row[COL.TOTAL_SOAL]) || 0,
+    tanggal: Utilities.formatDate(row[COL.TIMESTAMP], TIMEZONE, "yyyy-MM-dd"),
+  });
 }
 
 function pct(benar, total) {
   return total > 0 ? Math.round((benar / total) * 1000) / 10 : null;
+}
+
+// Peringkat skor tertinggi dalam satu kelompok (dipakai untuk "Top 3").
+function topEntries(group, limit) {
+  return group.entries
+    .slice()
+    .sort(function (a, b) {
+      if (b.skorPersen !== a.skorPersen) return b.skorPersen - a.skorPersen;
+      return b.jumlahBenar - a.jumlahBenar;
+    })
+    .slice(0, limit);
 }
 
 function finalizeGroup(group, dateLabel) {
@@ -174,5 +193,6 @@ function finalizeGroup(group, dateLabel) {
       snp: { benar: group.snpBenar, total: group.snpTotal, pct: pct(group.snpBenar, group.snpTotal) },
       rapor: { benar: group.raporBenar, total: group.raporTotal, pct: pct(group.raporBenar, group.raporTotal) },
     },
+    top3: topEntries(group, 3),
   };
 }
